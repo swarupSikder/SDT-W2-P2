@@ -36,7 +36,23 @@ let collection = [];
 const loadData = async (apiURL) => {
     collection = await fetch(apiURL)
         .then(res => res.json())
-        .then(data => data.meals);
+        .then(data => data.meals || []);
+
+
+
+    mealsLayout.innerHTML = ``;
+
+    if (collection.length === 0) {
+        mealsLayout.innerHTML = `
+            <div class="no-meals">
+                <img src="./assets/empty.png" class="w-25" alt="">
+                <h2>No Meals Found</h2>
+            </div>
+        `;
+
+        return;
+    }
+
 
     collection.forEach(meal => {
 
@@ -57,7 +73,7 @@ const loadData = async (apiURL) => {
         
 
                     <div class="d-flex justify-content-between">
-                        <button onclick="showMealDetails('${meal.idMeal}')" class="btn btn-outline-success">Details</button>
+                        <button onclick="showMealDetails('${meal.idMeal}')" class="btn btn-outline-info w-100">Details</button>
                     </div>
                 </div>
             </div>

@@ -1,15 +1,42 @@
-let mainCollection = [];
+// parent layout
+const mealsLayout = document.getElementById('meals-layout');
+
+
+
+
+
+// search button clicked
+const setAPI = (event, text) => {
+    event.preventDefault();
+    mealsLayout.innerHTML = ``;
+
+    if (text.length === 0) {
+        mealsLayout.innerHTML = `
+            <div class="no-meals">
+                <img src="./assets/empty.png" class="w-25" alt="">
+                <h2>No Meals Found</h2>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    apiURL = `https://www.themealdb.com/api/json/v1/1/search.php?s=${text}`;
+    loadData(apiURL);
+}
+
+
+
+// mainDB
+let collection = [];
+
 
 // fetch
-const loadData = async () => {
-    const collection = await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=a')
+const loadData = async (apiURL) => {
+    collection = await fetch(apiURL)
         .then(res => res.json())
         .then(data => data.meals);
-
-    mainCollection = collection;
-
-    // parent layout
-    const mealsLayout = document.getElementById('meals-layout');
 
     collection.forEach(meal => {
 
@@ -30,7 +57,7 @@ const loadData = async () => {
         
 
                     <div class="d-flex justify-content-between">
-                        <button onclick="showMealDetails('${meal.idMeal}')" class="btn btn-outline-info w-100">Details</button>
+                        <button onclick="showMealDetails('${meal.idMeal}')" class="btn btn-outline-success">Details</button>
                     </div>
                 </div>
             </div>
@@ -38,6 +65,6 @@ const loadData = async () => {
 
         mealsLayout.appendChild(singleMealCard);
     });
+
 }
 
-loadData();

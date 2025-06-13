@@ -1,0 +1,10 @@
+#thumbnail {
+    height: 200px;
+    object-fit: cover;
+}
+
+.no-meals {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    color: #fb9595;
+}

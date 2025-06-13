@@ -20,7 +20,7 @@
             </a>
 
 
-            <form onsubmit="handleSearch(event, event.target.search.value)" class="d-flex" role="search">
+            <form onsubmit="setAPI(event, event.target.search.value)" class="d-flex" role="search">
                 <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
                     name="search" />
                 <button class="btn btn-outline-info" type="submit">Search</button>
@@ -40,7 +40,7 @@
 
 
             <!--Foods Layout-->
-            <div class="col-8 h-vh-100">
+            <div class="col-8 h-vh-100 rounded" style="background-color: rgb(244, 255, 255);">
                 <div class="container text-center">
 
                     <!--parent layout-->

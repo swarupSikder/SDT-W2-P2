@@ -12,14 +12,31 @@
 
 <body>
 
-    
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <h2 class="text-info">Food<span class="text-secondary">ie</span></h2>
+            </a>
+
+
+            <form onsubmit="handleSearch(event, event.target.search.value)" class="d-flex" role="search">
+                <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                    name="search" />
+                <button class="btn btn-outline-info" type="submit">Search</button>
+            </form>
+
+            <button class="btn btn-info text-white">Contact Us</button>
+
+        </div>
+    </nav>
 
 
 
 
 
 
-    
+
 
 
 

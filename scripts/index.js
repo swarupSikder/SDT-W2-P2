@@ -84,3 +84,41 @@ const loadData = async (apiURL) => {
 
 }
 
+
+
+
+
+
+
+
+
+// show meal details
+const showMealDetails = (id) => {
+    const targetMeal = collection.find(meal => meal.idMeal === id);
+
+    // parent layout
+    const parentLayout = document.getElementById('detail-container');
+    parentLayout.innerHTML = ``;
+
+    // creating a child div
+    const div = document.createElement('div');
+    div.classList.add('card', 'shadow-sm', 'border-0');
+    div.style.backgroundColor = "rgb(244, 255, 255)";
+    div.innerHTML = `
+        <img src="${targetMeal.strMealThumb}" class="card-img-top" alt="${targetMeal.strMeal}">
+        <div class="card-body d-flex flex-column justify-content-between text-start">
+            <h5 class="card-title">${targetMeal.strMeal}</h5>
+            <p class="text-black-50">${targetMeal.strCategory}</p>
+            <p class="card-text">${targetMeal.strInstructions}</p>
+
+            <p class="fw-bold text-black-50"># Ingredient 1: <span class="fw-normal text-black">${targetMeal.strIngredient1}</span></p>
+            <p class="fw-bold text-black-50"># Ingredient 2: <span class="fw-normal text-black">${targetMeal.strIngredient2}</span></p>
+            <p class="fw-bold text-black-50"># Ingredient 3: <span class="fw-normal text-black">${targetMeal.strIngredient3}</span></p>
+                        
+            <p class="bg-info w-25 text-center p-2 rounded text-white fw-bold">${targetMeal.strArea}</p>
+        </div>
+    `;
+
+    // append child
+    parentLayout.appendChild(div);
+}

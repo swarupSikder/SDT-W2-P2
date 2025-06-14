@@ -12,8 +12,10 @@ Foodie is a simple and elegant meal search web app that lets users search for me
 
 💡 Error handling for empty or invalid results
 
-🖼️ Preview
-<!-- Add your own screenshot if available -->
+
+# Live Link
+> https://swarupsikder.github.io/SDT-W2-P2/
+
 
 🛠️ Tech Stack
 HTML5, CSS3

@@ -8,3 +8,9 @@
     padding-bottom: 200px;
     color: #fb9595;
 }
+
+.logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
